@@ -1,0 +1,21 @@
+server:
+  port: 10015
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  application:
+    name: DeliveryConsumer
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+          #Feign的连接超时和读取超时会覆盖掉，ribbon的超时设置
+            # 请求连接的超时时间 默认的时间为 1 秒
+            #需要注意的是connectTimeout和readTimeout必须同时配置，要不然不会生效
+        #连接超时时间
